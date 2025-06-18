@@ -1,0 +1,47 @@
+<h2>Registrar Nuevo Estudiante</h2>
+<form (ngSubmit)="onSubmit()">
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre Completo del Alumno</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="student.name" required>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="fatherName" class="form-label">Nombre del Padre</label>
+      <input type="text" class="form-control" id="fatherName" name="fatherName" [(ngModel)]="student.fatherName" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="motherName" class="form-label">Nombre de la Madre</label>
+      <input type="text" class="form-control" id="motherName" name="motherName" [(ngModel)]="student.motherName" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="birthDate" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" id="birthDate" name="birthDate" [(ngModel)]="student.birthDate" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="enrollmentDate" class="form-label">Fecha de Ingreso</label>
+      <input type="date" class="form-control" id="enrollmentDate" name="enrollmentDate" [(ngModel)]="student.enrollmentDate" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="grade" class="form-label">Grado</label>
+      <select class="form-select" id="grade" name="grade" [(ngModel)]="student.grade">
+        <option *ngFor="let grade of [1,2,3,4,5,6]" [value]="grade">{{ grade }}°</option>
+      </select>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="section" class="form-label">Sección</label>
+      <select class="form-select" id="section" name="section" [(ngModel)]="student.section">
+        <option *ngFor="let section of ['A','B','C']" [value]="section">{{ section }}</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

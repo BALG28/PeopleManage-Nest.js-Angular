@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "54aa0896-cab1-4c49-92d3-9d5405d492b4",
+		"name": "GestionEscolarPT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42636232"
+	},
+	"item": [
+		{
+			"name": "Crear un nuevo estudiante",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ApiSecret123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pedro Pascal\",\r\n  \"birthDate\": \"1975-04-02\",\r\n  \"fatherName\": \"José Balmaceda\",\r\n  \"motherName\": \"Verónica Pascal\",\r\n  \"grade\": 1,\r\n  \"section\": \"C\",\r\n  \"enrollmentDate\": \"2025-01-15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/crear-alumno",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"crear-alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Estudiante por Grado",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ApiSecret123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/consultar-alumno/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"consultar-alumno",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,43 @@
+<h2>Lista de Estudiantes</h2>
+
+<div class="mb-3">
+  <a routerLink="/students/new" class="btn btn-success">Registrar Nuevo Estudiante</a>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Filtrar por grado:</label>
+  <select class="form-select" [(ngModel)]="selectedGrade" (ngModelChange)="filterByGrade()">
+    <option [ngValue]="null">Todos</option>
+    <option *ngFor="let grade of [1,2,3,4,5,6]" [value]="grade">{{ grade }}° Grado</option>
+  </select>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Nombre Padre</th>
+        <th>Nombre Madre</th>
+        <th>Grado</th>
+        <th>Sección</th>
+        <th>Fecha Ingreso</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.name }}</td>
+        <td>{{ student.fatherName }}</td>
+        <td>{{ student.motherName }}</td>
+        <td>{{ student.grade }}°</td>
+        <td>{{ student.section }}</td>
+        <td>{{ student.enrollmentDate | date }}</td>
+        <td>
+          <a [routerLink]="['/students/edit', student.id]" class="btn btn-primary btn-sm me-2">Editar</a>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(student.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
